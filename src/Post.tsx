@@ -8,9 +8,11 @@ export default function Post({ id }: { id: number }) {
         queryFn: () => getPost(id),
     })
 
+    console.log(postQuery.data);
+    
     const userQuery = useQuery({
         queryKey: ['users', postQuery.data?.userId],
-        enabled: !!(postQuery.data?.userId),
+        enabled: !!(postQuery.data),
         queryFn: () => getUser(postQuery.data?.userId!)
     })
 

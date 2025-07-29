@@ -21,11 +21,12 @@ export function getPost(id: number): Promise<Post> {
 }
 
 type CreatePost = { title: string, body: string }
-export function createPost({ title, body }: CreatePost) {
+export function createPost({ title, body }: CreatePost): Promise<Post> {
     return fetch(API_URI + '/posts', {
         body: JSON.stringify({ title, body, userId: 1, id: Date.now() }),
+        method:'post',
         headers: {
-            'content-type': 'application/json'
+            'content-types': 'application/json'
         }
     })
         .then(res => res.json())
