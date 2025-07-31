@@ -12,8 +12,8 @@ export function getPosts(): Promise<Post[]> {
     return fetch(API_URI + '/posts?_sort=title').then(res => res.json())
 }
 
-export function getPostsPaginated(page: number) {
-    return fetch(API_URI + `/posts?_sort=title&_page=${page}&_limit=2`).then(res => res.json())
+export function getPostsPaginated(page: number): Promise<Post[]> {
+    return fetch(API_URI + '/posts' + `?_page=${page}&_limit=2`).then(res => res.json())
 }
 
 export function getPost(id: number): Promise<Post> {
@@ -24,10 +24,10 @@ type CreatePost = { title: string, body: string }
 export function createPost({ title, body }: CreatePost): Promise<Post> {
     return fetch(API_URI + '/posts', {
         body: JSON.stringify({ title, body, userId: 1, id: Date.now() }),
-        method:'post',
+        method: 'post',
         headers: {
             'content-types': 'application/json'
         }
-    })
+    })  
         .then(res => res.json())
 }

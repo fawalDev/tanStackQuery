@@ -12,7 +12,7 @@ export default function CreatePost({ setCurrentPage }: Props) {
 
     const createPostMutation = useMutation({
         mutationFn: createPost,
-        onSuccess: (data, variable, context) => {
+        onSuccess: (data, _, context) => {
             console.log(data, context);
 
             queryClient.setQueryData(['posts', data.id], data)
