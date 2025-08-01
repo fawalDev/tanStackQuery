@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query"
 import { getPosts } from "./api/posts"
 
-export default function PostList2() {
+export default function PostListQueries() {
     const postQuery = useQuery({
         queryKey: ['posts'],
-        queryFn: getPosts
+        queryFn: getPosts,
+        placeholderData: [{ id: 1, title: 'Initial Data' }],
+        staleTime: 5000
     })
 
     if (postQuery.status === 'pending')

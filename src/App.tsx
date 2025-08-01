@@ -1,12 +1,12 @@
 // import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 
-import PostsList1 from './PostsList1'
-import PostsList2 from './PostsList2'
+import PostsList from './PostsList'
 import Post from './Post'
 import CreatePost from './CreatePost'
 import PostsListPagination from './PostsListPagination'
 import PostsListInfinity from './PostsListInfinity'
+import PostsListQueries from './PostsListQueries'
 
 
 function App() {
@@ -14,11 +14,8 @@ function App() {
 
   return (
     <div>
-      <button onClick={() => setCurrentPage(<PostsList1 />)}>
-        Post List 1
-      </button>
-      <button onClick={() => setCurrentPage(<PostsList2 />)}>
-        Post List 2
+      <button onClick={() => setCurrentPage(<PostsList />)}>
+        Posts List
       </button>
       <button onClick={() => setCurrentPage(<Post id={1} />)}>
         First Post
@@ -31,6 +28,9 @@ function App() {
       </button>
       <button onClick={() => setCurrentPage(<PostsListInfinity />)}>
         Post List Pagination
+      </button>
+      <button onClick={() => setCurrentPage(<PostsListQueries />)}>
+        Post List Queries
       </button>
       <br />
       {currentPage}
