@@ -6,10 +6,11 @@ import PostsList2 from './PostsList2'
 import Post from './Post'
 import CreatePost from './CreatePost'
 import PostsListPagination from './PostsListPagination'
+import PostsListInfinity from './PostsListInfinity'
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(<PostsListPagination />)
+  const [currentPage, setCurrentPage] = useState(<PostsListInfinity />)
 
   return (
     <div>
@@ -26,6 +27,9 @@ function App() {
         Create Post
       </button>
       <button onClick={() => setCurrentPage(<PostsListPagination />)}>
+        Post List Pagination
+      </button>
+      <button onClick={() => setCurrentPage(<PostsListInfinity />)}>
         Post List Pagination
       </button>
       <br />
