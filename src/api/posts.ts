@@ -8,21 +8,21 @@ export type Post = {
     body?: string
 }
 
-export function getPosts() {
+export function getPosts(): Promise<Post[]> {
     return fetch(API_URI + '/posts?_sort=title').then(res => res.json())
 }
 
-export function getPostsPaginated(page: number) :Promise<Post[]>{
+export function getPostsPaginated(page: number): Promise<Post[]> {
     // let headers: Headers
     return fetch(API_URI + '/posts' + `?_page=${page}&_limit=2`)
         .then(res => {
             // headers = res.headers
             return res.json()
         })
-        // .then((data:Post[]) => ({
-        //     total: headers.get('x-total-count'),
-        //     data: data
-        // }))
+    // .then((data:Post[]) => ({
+    //     total: headers.get('x-total-count'),
+    //     data: data
+    // }))
 }
 
 export function getPost(id: number): Promise<Post> {
