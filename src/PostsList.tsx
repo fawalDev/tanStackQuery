@@ -5,7 +5,7 @@ export default function PostListQueries() {
     const postQuery = useQuery({
         queryKey: ['posts'],
         queryFn: getPosts,
-        placeholderData: [{ id: 1, title: 'Initial Data' }],
+        placeholderData: [{ id: 1, title: 'PlaceholderData different to Initial Data' }],
         staleTime: 5000
     })
 
