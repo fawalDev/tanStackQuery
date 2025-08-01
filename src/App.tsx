@@ -16,6 +16,7 @@ function App() {
 
   const queryClient = useQueryClient()
 
+  // Pre-fetching
   function onHoverPostLink() {
     queryClient.prefetchQuery({
       queryKey: ['posts', 1],
